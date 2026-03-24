@@ -1,0 +1,2440 @@
+  /* ============================================================
+   FONTS
+   ============================================================ */
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400&display=swap');
+
+  /* ============================================================
+   GLOBAL COMPONENTS
+   ============================================================ */
+
+  /* ============ NAV DRAWER (Overlay Menu) ============ */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 340px;
+    height: 100%;
+    background: #00003c;
+    z-index: 9999;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-drawer.open {
+    transform: translateX(0);
+  }
+
+  .nav-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s ease;
+  }
+
+  .nav-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-drawer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .nav-drawer-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-drawer-close:hover {
+    opacity: 1;
+  }
+
+  .nav-drawer-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+  }
+
+  .nav-drawer-links a {
+    color: white !important;
+    text-decoration: none !important;
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 48px !important;
+    letter-spacing: 0.04em;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    display: block !important;
+  }
+
+  .nav-drawer.open .nav-drawer-links a:nth-child(1) {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition-delay: 0.15s;
+  }
+  .nav-drawer.open .nav-drawer-links a:nth-child(2) {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition-delay: 0.22s;
+  }
+  .nav-drawer.open .nav-drawer-links a:nth-child(3) {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition-delay: 0.29s;
+  }
+  .nav-drawer.open .nav-drawer-links a:nth-child(4) {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition-delay: 0.36s;
+  }
+  .nav-drawer.open .nav-drawer-links a:nth-child(5) {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition-delay: 0.43s;
+  }
+
+  .nav-drawer-links a:hover {
+    opacity: 0.4 !important;
+    padding-left: 10px;
+  }
+
+  .nav-drawer-bottom {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .svg-2 {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .svg-2:hover {
+    opacity: 0.5;
+  }
+
+  /* ============ BUTTONS (Shared) ============ */
+  .otr-btn-primary {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #000;
+    background: white;
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .otr-btn-primary:hover {
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .otr-btn-secondary {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    background: transparent;
+    padding: 16px 36px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .otr-btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ============ CTA SECTION (Shared) ============ */
+  .otr-cta {
+    background: #00003c;
+    padding: 140px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-cta-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 24px;
+  }
+
+  .otr-cta-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 7vw, 100px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .otr-cta-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 480px;
+    margin: 0 auto 48px;
+  }
+
+  .otr-cta .otr-btn-primary {
+    display: inline-block;
+  }
+
+  /* ============ FOOTER (Shared) ============ */
+  .otr-footer {
+    background: #000;
+    padding: 60px 80px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  .otr-footer-logo img {
+    width: 100px;
+    opacity: 0.8;
+  }
+
+  .otr-footer-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .otr-footer-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .otr-footer-links a:hover {
+    color: white;
+  }
+
+  .otr-footer-socials {
+    display: flex;
+    gap: 24px;
+  }
+
+  .otr-footer-socials a {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .otr-footer-socials a:hover {
+    color: white;
+  }
+
+  .otr-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .otr-footer-bottom p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* =======================
+   HOMEPAGE
+   ========================= */
+
+  /* ============ HERO ============ */
+  .otr-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    overflow: hidden;
+    background: #000;
+    margin-top: -80px;
+  }
+
+  .otr-hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px 80px 120px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .otr-hero-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 32px;
+  }
+
+  .otr-hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 7vw, 110px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: white;
+    margin-bottom: 28px;
+  }
+
+  .otr-hero-headline span {
+    display: block;
+  }
+
+  .otr-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 380px;
+    margin-bottom: 48px;
+  }
+
+  .otr-hero-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .otr-hero-social-proof {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.1em;
+  }
+
+  .otr-hero-stars {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .otr-hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .otr-hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.75);
+  }
+
+  .otr-hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, #000, transparent);
+    z-index: 1;
+  }
+
+  .otr-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 120px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    z-index: 3;
+  }
+
+  /* ============ SERVICES (Homepage Cards) ============ */
+  .otr-services {
+    background: #000;
+    padding: 60px 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-services-header {
+    margin-bottom: 64px;
+    text-align: center;
+  }
+
+  .otr-services-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-services-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+  }
+
+  .otr-services-title em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .otr-service-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .otr-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 60, 0.6), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 16px;
+  }
+
+  .otr-service-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .otr-service-card:hover::before {
+    opacity: 1;
+  }
+  .otr-service-card:hover .otr-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .otr-service-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .otr-service-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .otr-service-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .otr-card-arrow {
+    font-size: 20px;
+    color: white;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+    align-self: flex-end;
+  }
+
+  /* ============ MARQUEE TICKER ============ */
+  .otr-marquee {
+    background: #00003c;
+    padding: 30px 0;
+    overflow: hidden;
+    margin: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .otr-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 30s linear infinite;
+  }
+
+  .otr-marquee-track span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    padding: 0 24px;
+  }
+
+  .otr-marquee-track span::after {
+    content: '\2726';
+    margin-left: 24px;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 10px;
+    vertical-align: middle;
+  }
+
+  .otr-marquee:hover .otr-marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ============ STATEMENT ============ */
+  .otr-statement {
+    background: #000;
+    padding: 140px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-statement-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 5.5vw, 90px);
+    color: white;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  .otr-statement-text em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .otr-statement-btn {
+    display: inline-block;
+    margin-top: 48px;
+  }
+
+  /* ============ WORK/PORTFOLIO (Homepage Section) ============ */
+  .otr-work {
+    background: #000;
+    padding: 100px 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-work-header {
+    margin-bottom: 64px;
+    text-align: center;
+  }
+
+  .otr-work-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-work-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+  }
+
+  .otr-work-title em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .otr-work-card {
+    text-decoration: none;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .otr-work-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+  }
+
+  .otr-work-image {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .otr-work-info {
+    padding: 28px 28px 32px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .otr-work-info h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .otr-work-info p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 16px;
+  }
+
+  .otr-work-result {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 6px 14px;
+    background: rgba(0, 0, 60, 0.5);
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  /* ============ WORK CARDS SCROLLING MARQUEE ============ */
+  .otr-work-scroll {
+    overflow: hidden;
+  }
+
+  .otr-work-scroll-track {
+    display: flex;
+    width: max-content;
+    animation: workCardScroll 25s linear infinite;
+    gap: 24px;
+  }
+
+  .otr-work-scroll-track:hover {
+    animation-play-state: paused;
+  }
+
+  .otr-work-scroll-track .otr-work-card {
+    flex: 0 0 380px;
+    text-decoration: none;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .otr-work-scroll-track .otr-work-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+  }
+
+  @keyframes workCardScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .otr-testimonials {
+    background: #000;
+    padding: 100px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-testimonials-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 60px;
+  }
+
+  .otr-testimonial-item {
+    max-width: 800px;
+    margin: 0 auto 60px;
+  }
+
+  .otr-testimonial-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .otr-testimonial-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    color: white;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  .otr-testimonial-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+  /* ============ About Hero ============ */
+  .otr-about-hero {
+    background: #000;
+    padding: 180px 80px 100px;
+    text-align: center;
+  }
+
+  .otr-about-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 24px;
+  }
+
+  .otr-about-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 90px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto 28px;
+  }
+
+  .otr-about-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-about-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ============ About Story ============ */
+  .otr-about-story {
+    background: #000;
+    padding: 100px 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-story-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .otr-story-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .otr-story-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .otr-story-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-story-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 24px;
+  }
+
+  .otr-story-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ============ About Team ============ */
+  .otr-about-team {
+    background: #000;
+    padding: 100px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-team-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-team-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 64px;
+  }
+
+  .otr-team-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .otr-team-card {
+    text-align: center;
+  }
+
+  .otr-team-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 24px;
+  }
+
+  .otr-team-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .otr-team-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* ============ About Values ============ */
+  .otr-about-values {
+    background: #000;
+    padding: 100px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-values-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-values-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 64px;
+  }
+
+  .otr-values-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .otr-value-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 40px 32px;
+  }
+
+  .otr-value-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.2);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .otr-value-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .otr-value-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+   SERVICES PAGE
+   ============================================================ */
+
+  /* ============ Services Hero ============ */
+  .otr-services-hero {
+    background: #000;
+    padding: 180px 80px 100px;
+    text-align: center;
+  }
+
+  .otr-svc-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 24px;
+  }
+
+  .otr-svc-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 90px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    line-height: 1.05;
+    max-width: 900px;
+    margin: 0 auto 28px;
+  }
+
+  .otr-svc-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-svc-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ============ Services Tab Switcher ============ */
+  .otr-services-tabs {
+    background: #000;
+    padding: 60px 80px 100px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 64px;
+  }
+
+  .otr-tab-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px 48px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .otr-tab-btn:first-child {
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+  }
+
+  .otr-tab-btn:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .otr-tab-btn.active {
+    background: #00003c;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .otr-tab-btn:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .otr-tab-content {
+    display: none;
+  }
+
+  .otr-tab-content.active {
+    display: block;
+  }
+
+  .otr-svc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .otr-svc-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 40px 32px;
+    transition: all 0.4s ease;
+  }
+
+  .otr-svc-card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .otr-svc-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.2);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .otr-svc-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .otr-svc-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+  }
+
+  /* ============ Services Better Together ============ */
+  .otr-better-together {
+    background: #00003c;
+    padding: 100px 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-bt-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .otr-bt-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-bt-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  .otr-bt-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-bt-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 24px;
+  }
+
+  .otr-bt-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ============ Services Process ============ */
+  .otr-process {
+    background: #000;
+    padding: 100px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .otr-process-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .otr-process-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    margin-bottom: 64px;
+  }
+
+  .otr-process-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-process-grid {
+    display: flex;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .otr-process-step {
+    flex: 1;
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+  }
+
+  .otr-process-step:last-child {
+    border-right: none;
+  }
+
+  .otr-process-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.2);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .otr-process-step h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+
+  .otr-process-step p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+
+  /* ============ Contact Hero ============ */
+  .otr-contact-hero {
+    padding: 140px 40px 60px;
+    text-align: center;
+    background: #000;
+  }
+
+  .otr-contact-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 16px;
+  }
+
+  .otr-contact-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    color: #fff;
+    line-height: 1.05;
+    margin: 0 0 16px;
+  }
+
+  .otr-contact-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-contact-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ============ Contact Body (Two-Column Form Layout) ============ */
+  .otr-contact-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    background: #000;
+  }
+
+  .otr-contact-form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+
+  .otr-contact-form-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 32px;
+    line-height: 1.5;
+  }
+
+  /* GHL Form Embed */
+  .otr-ghl-form-wrapper {
+    width: 100%;
+    min-height: 1067px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .otr-ghl-form-wrapper iframe {
+    width: 100% !important;
+    height: 1067px !important;
+    border: none !important;
+  }
+
+  /* Contact Info (Right Column) */
+  .otr-contact-info-side {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 12px;
+  }
+
+  .otr-contact-info-block h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+
+  .otr-contact-info-block p,
+  .otr-contact-info-block a {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .otr-contact-info-block a:hover {
+    color: #fff;
+  }
+
+  .otr-contact-response {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .otr-contact-response h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+
+  .otr-contact-response p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ============ FAQ Section ============ */
+  .otr-faq {
+    padding: 100px 40px;
+    background: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-faq-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .otr-faq-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 56px);
+    color: #fff;
+    text-align: center;
+    margin: 0 0 60px;
+    line-height: 1.05;
+  }
+
+  .otr-faq-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .otr-faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .otr-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    cursor: pointer;
+    gap: 20px;
+  }
+
+  .otr-faq-question h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .otr-faq-icon {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .otr-faq-item.active .otr-faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .otr-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .otr-faq-item.active .otr-faq-answer {
+    max-height: 300px;
+  }
+
+  .otr-faq-answer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    margin: 0;
+    padding-bottom: 24px;
+  }
+
+  /* ============================================================
+   PORTFOLIO PAGE (Add CSS here when ready)
+   ============================================================ */
+  /* ===== PORTFOLIO PAGE - HERO ===== */
+
+  .otr-portfolio-hero {
+    background: #000;
+    padding: 180px 80px 100px;
+    text-align: center;
+  }
+
+  .otr-portfolio-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 24px;
+  }
+
+  .otr-portfolio-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 7vw, 100px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0 auto 28px;
+  }
+
+  .otr-portfolio-headline em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .otr-portfolio-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ===== FILTER TABS ===== */
+
+  .otr-portfolio-filters {
+    background: #000;
+    padding: 0 80px 60px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .otr-filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  .otr-filter-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .otr-filter-btn.active {
+    color: #000;
+    background: #fff;
+    border-color: #fff;
+  }
+
+  /* ===== MASONRY GRID ===== */
+
+  .otr-portfolio-grid-wrapper {
+    background: #000;
+    padding: 0 80px 120px;
+  }
+
+  .otr-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-auto-rows: 200px;
+  }
+
+  /* Card sizes for masonry effect */
+  .otr-pf-card.tall {
+    grid-row: span 2;
+  }
+  .otr-pf-card.wide {
+    grid-column: span 2;
+  }
+
+  .otr-pf-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.5s ease;
+  }
+
+  .otr-pf-card.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  /* Image/Video fill */
+  .otr-pf-card img,
+  .otr-pf-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .otr-pf-card:hover img,
+  .otr-pf-card:hover video {
+    transform: scale(1.05);
+  }
+
+  /* Dark gradient overlay */
+  .otr-pf-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    z-index: 1;
+    transition: opacity 0.4s ease;
+  }
+
+  /* Card info overlay */
+  .otr-pf-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px;
+    z-index: 2;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .otr-pf-card:hover .otr-pf-info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .otr-pf-industry {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+  }
+
+  .otr-pf-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .otr-pf-services {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
+  }
+
+  /* Video play indicator */
+  .otr-pf-play-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .otr-pf-card:hover .otr-pf-play-indicator {
+    opacity: 1;
+  }
+
+  .otr-pf-play-indicator::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent white;
+    margin-left: 2px;
+  }
+
+  /* ===== CASE STUDY OVERLAY ===== */
+
+  .otr-cs-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .otr-cs-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .otr-cs-close {
+    position: fixed;
+    top: 32px;
+    right: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    z-index: 10001;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 8px;
+  }
+
+  .otr-cs-close:hover {
+    color: white;
+  }
+
+  .otr-cs-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  }
+
+  .otr-cs-overlay.active .otr-cs-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .otr-cs-industry-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 16px;
+  }
+
+  .otr-cs-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 72px);
+    color: white;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  .otr-cs-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+
+  .otr-cs-meta {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-cs-meta-item label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .otr-cs-meta-item span {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+
+  /* Case study video */
+  .otr-cs-video-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .otr-cs-video-wrapper video {
+    width: 100%;
+    display: block;
+  }
+
+  /* Case study image gallery */
+  .otr-cs-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .otr-cs-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .otr-cs-gallery img.full-width {
+    grid-column: span 2;
+  }
+
+  /* Case study navigation */
+  .otr-cs-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .otr-cs-nav-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .otr-cs-nav-btn:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* ============================================================
+   RESPONSIVE - TABLET & MOBILE (768px and below)
+   ============================================================ */
+  @media (max-width: 768px) {
+    /* --- Navbar --- */
+    .nav_container {
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    .nav_left,
+    .nav_right {
+      flex: 0 0 80px !important;
+      width: 80px !important;
+    }
+
+    .nav_left {
+      justify-content: flex-start !important;
+    }
+
+    .nav_right {
+      justify-content: flex-end !important;
+      display: flex !important;
+    }
+
+    .nav_logo {
+      flex: 1 !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    .nav_logo img {
+      max-width: 100px !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .nav_right .button {
+      font-size: 10px !important;
+      padding: 8px 14px !important;
+      letter-spacing: 0.05em !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-drawer {
+      width: 280px;
+    }
+
+    .nav-drawer-links a {
+      font-size: 36px !important;
+    }
+
+    /* --- Homepage Hero --- */
+    .otr-hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      height: auto;
+      min-height: 100vh;
+      margin-top: -60px;
+    }
+
+    .otr-hero-left {
+      padding: 120px 32px 60px 32px;
+      text-align: center;
+      align-items: center;
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 2;
+    }
+
+    .otr-hero-right {
+      grid-row: 1;
+      grid-column: 1;
+      height: 300px;
+    }
+
+    .otr-hero-right::before {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    .otr-hero-headline {
+      font-size: clamp(48px, 12vw, 72px);
+    }
+
+    .otr-hero-sub {
+      font-size: 15px;
+      max-width: 100%;
+    }
+
+    .otr-hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .otr-btn-primary,
+    .otr-btn-secondary {
+      text-align: center;
+      padding: 16px 28px;
+    }
+
+    .otr-hero-social-proof {
+      margin-top: 40px;
+      justify-content: center;
+    }
+
+    .otr-scroll-hint {
+      display: none;
+    }
+
+    /* --- Homepage Services --- */
+    .otr-services {
+      padding: 60px 20px;
+    }
+
+    .otr-services-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .otr-service-card {
+      padding: 32px 24px;
+    }
+
+    .otr-service-card h3 {
+      font-size: 26px;
+    }
+
+    /* --- Marquee --- */
+    .otr-marquee {
+      width: 100vw !important;
+      position: relative !important;
+      left: 50% !important;
+      right: 50% !important;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
+      border-radius: 0;
+    }
+
+    .otr-marquee-track span {
+      font-size: 16px;
+      padding: 0 16px;
+    }
+
+    .otr-marquee-track span::after {
+      margin-left: 16px;
+    }
+
+    /* --- Statement --- */
+    .otr-statement {
+      padding: 80px 24px;
+    }
+
+    .otr-statement-text {
+      font-size: clamp(36px, 9vw, 56px);
+    }
+
+    /* --- Work/Portfolio (Homepage) --- */
+    .otr-work {
+      padding: 80px 20px;
+    }
+
+    .otr-work-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .otr-work-image {
+      height: 200px;
+    }
+
+    .otr-work-info h3 {
+      font-size: 24px;
+    }
+
+    /* --- Testimonials --- */
+    .otr-testimonials {
+      padding: 80px 24px;
+    }
+
+    .otr-testimonial-quote {
+      font-size: clamp(24px, 6vw, 36px);
+    }
+
+    /* --- CTA --- */
+    .otr-cta {
+      padding: 80px 24px;
+    }
+
+    .otr-cta-sub {
+      font-size: 15px;
+    }
+
+    /* --- Footer --- */
+    .otr-footer {
+      padding: 48px 24px 32px;
+    }
+
+    .otr-footer-top {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 36px;
+    }
+
+    .otr-footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .otr-footer-socials {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .otr-footer-logo {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+    }
+
+    /* --- About Page --- */
+    .otr-about-hero {
+      padding: 140px 24px 80px;
+    }
+
+    .otr-about-hero-sub {
+      font-size: 15px;
+    }
+
+    .otr-about-story {
+      padding: 80px 24px;
+    }
+
+    .otr-story-text p {
+      font-size: 14px;
+    }
+
+    .otr-about-team {
+      padding: 80px 24px;
+    }
+
+    .otr-team-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      max-width: 320px;
+    }
+
+    .otr-about-values {
+      padding: 80px 24px;
+    }
+
+    .otr-values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .otr-value-card {
+      padding: 32px 24px;
+    }
+    /* --- Services Page --- */
+    .otr-services-hero {
+      padding: 140px 24px 80px;
+    }
+
+    .otr-services-tabs {
+      padding: 40px 20px 80px;
+    }
+
+    .otr-tab-btn {
+      font-size: 20px;
+      padding: 14px 32px;
+    }
+
+    .otr-svc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .otr-svc-card {
+      padding: 32px 24px;
+    }
+
+    .otr-better-together {
+      padding: 80px 24px;
+    }
+
+    .otr-process {
+      padding: 80px 20px;
+    }
+
+    .otr-process-grid {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .otr-process-step {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 28px 0;
+    }
+
+    .otr-process-step:last-child {
+      border-bottom: none;
+    }
+
+    /* --- Contact Page --- */
+    .otr-contact-hero {
+      padding: 120px 20px 40px !important;
+    }
+
+    .otr-contact-body {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+      padding: 50px 20px !important;
+    }
+
+    .otr-contact-form-side {
+      order: 1 !important;
+    }
+
+    .otr-contact-info-side {
+      order: 2 !important;
+    }
+
+    .otr-faq {
+      padding: 60px 20px !important;
+    }
+
+    .otr-faq-question h3 {
+      font-size: 15px !important;
+    }
+
+    .otr-faq-answer p {
+      font-size: 14px !important;
+    }
+
+    /* --- Portfolio Page (add mobile rules here when ready) --- */
+    /* Portfolio Page Mobile */
+    .otr-portfolio-hero {
+      padding: 140px 24px 60px !important;
+    }
+    .otr-portfolio-filters {
+      padding: 0 20px 40px !important;
+      gap: 6px !important;
+    }
+    .otr-filter-btn {
+      font-size: 11px !important;
+      padding: 10px 20px !important;
+    }
+    .otr-portfolio-grid-wrapper {
+      padding: 0 20px 80px !important;
+    }
+    .otr-portfolio-grid {
+      grid-template-columns: 1fr 1fr !important;
+      grid-auto-rows: 180px !important;
+      gap: 12px !important;
+    }
+    .otr-pf-info {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .otr-pf-name {
+      font-size: 20px !important;
+    }
+    .otr-pf-industry {
+      font-size: 9px !important;
+    }
+    .otr-pf-services {
+      font-size: 10px !important;
+    }
+    .otr-cs-content {
+      padding: 80px 24px 60px !important;
+    }
+    .otr-cs-title {
+      font-size: 40px !important;
+    }
+    .otr-cs-meta {
+      flex-direction: column !important;
+      gap: 24px !important;
+    }
+    .otr-cs-gallery {
+      grid-template-columns: 1fr !important;
+    }
+    .otr-cs-gallery img.full-width {
+      grid-column: span 1 !important;
+    }
+    .otr-cs-close {
+      top: 20px !important;
+      right: 24px !important;
+    }
+  }
+
+  /* ============================================================
+   RESPONSIVE - SMALL MOBILE (480px and below)
+   ============================================================ */
+  @media (max-width: 480px) {
+    /* --- Nav Drawer --- */
+    .nav-drawer {
+      width: 260px;
+      padding: 40px 28px;
+    }
+
+    .nav-drawer-links a {
+      font-size: 32px !important;
+      padding: 10px 0;
+    }
+
+    /* --- Homepage Hero --- */
+    .otr-hero-left {
+      padding: 120px 20px 40px;
+    }
+
+    .otr-hero-headline {
+      font-size: clamp(40px, 11vw, 60px);
+    }
+
+    .otr-hero-sub {
+      font-size: 14px;
+    }
+
+    .otr-hero-right {
+      height: 240px;
+    }
+
+    /* --- Homepage Services --- */
+    .otr-services {
+      padding: 48px 16px;
+    }
+
+    .otr-service-card {
+      padding: 28px 20px;
+    }
+
+    .otr-service-card h3 {
+      font-size: 24px;
+    }
+
+    .otr-service-card p {
+      font-size: 13px;
+    }
+
+    /* --- Statement --- */
+    .otr-statement {
+      padding: 60px 20px;
+    }
+
+    .otr-statement-text {
+      font-size: clamp(32px, 8vw, 48px);
+    }
+
+    /* --- Work/Portfolio (Homepage) --- */
+    .otr-work {
+      padding: 60px 16px;
+    }
+
+    .otr-work-info {
+      padding: 20px 20px 24px;
+    }
+
+    /* --- Testimonials --- */
+    .otr-testimonials {
+      padding: 60px 20px;
+    }
+
+    .otr-testimonial-quote {
+      font-size: clamp(22px, 5.5vw, 32px);
+    }
+
+    /* --- Contact Page --- */
+    .otr-contact-hero {
+      padding: 110px 16px 32px !important;
+    }
+
+    .otr-contact-body {
+      padding: 40px 16px !important;
+      gap: 30px !important;
+    }
+
+    .otr-contact-form-title {
+      font-size: 26px !important;
+    }
+
+    .otr-faq {
+      padding: 50px 16px !important;
+    }
+
+    /* --- Portfolio Page (add small mobile rules here when ready) --- */
+    /* Portfolio Page Small Mobile */
+    .otr-portfolio-hero {
+      padding: 120px 16px 48px !important;
+    }
+    .otr-portfolio-filters {
+      padding: 0 16px 32px !important;
+    }
+    .otr-portfolio-grid-wrapper {
+      padding: 0 16px 60px !important;
+    }
+    .otr-portfolio-grid {
+      grid-template-columns: 1fr !important;
+      grid-auto-rows: 240px !important;
+    }
+    .otr-pf-card.tall {
+      grid-row: span 1 !important;
+    }
+    .otr-pf-card.wide {
+      grid-column: span 1 !important;
+    }
+    .otr-cs-content {
+      padding: 70px 16px 40px !important;
+    }
+    .otr-cs-nav {
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+    .otr-cs-nav-btn {
+      width: 100% !important;
+      text-align: center !important;
+    }
+  }
