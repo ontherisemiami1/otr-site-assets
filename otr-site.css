@@ -8,6 +8,11 @@
    ============================================================ */
 
   /* ============ NAV DRAWER (Overlay Menu) ============ */
+
+html, body {
+  overflow-x: hidden;
+}
+
   .nav-drawer {
     position: fixed;
     top: 0;
