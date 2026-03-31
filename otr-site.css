@@ -344,12 +344,13 @@ nav {
 }
  
 .otr-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 24px 8vh 24px;
-  text-align: center;
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 700px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 24px 8vh 24px !important;
+  text-align: center !important;
 }
  
 .otr-hero-tag {
