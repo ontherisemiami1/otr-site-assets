@@ -344,13 +344,12 @@ nav {
 }
  
 .otr-hero-content {
-  position: relative !important;
-  z-index: 2 !important;
-  max-width: 700px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 24px 8vh 24px !important;
-  text-align: center !important;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 24px 8vh 24px;
+  text-align: center;
 }
  
 .otr-hero-tag {
@@ -2411,9 +2410,7 @@ nav {
     }
 
     /* --- Homepage Hero --- */
-    .otr-hero-left {
-      padding: 120px 20px 40px;
-    }
+  
 
     .otr-hero-headline {
       font-size: clamp(40px, 11vw, 60px);
@@ -2429,10 +2426,6 @@ nav {
 
     .otr-hero-sub {
       font-size: 14px;
-    }
-
-    .otr-hero-right {
-      height: 240px;
     }
 
     /* --- Homepage Services --- */
