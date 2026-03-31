@@ -318,6 +318,7 @@ nav {
   min-height: 100vh;
   display: flex;
   align-items: flex-end;
+  justify-content: center;    /* ADD THIS */
   overflow: hidden;
 }
  
@@ -337,21 +338,16 @@ nav {
 .otr-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.92) 0%,
-    rgba(0, 0, 0, 0.8) 35%,
-    rgba(0, 0, 0, 0.5) 65%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
  
 .otr-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 650px;
-  padding: 0 5% 8vh 5%;
+  max-width: 700px;
+  padding: 0 24px 8vh 24px;
+  text-align: center;
 }
  
 .otr-hero-tag {
@@ -402,6 +398,7 @@ nav {
   color: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
+  justify-content: center;    /* ADD THIS */
   gap: 8px;
 }
  
